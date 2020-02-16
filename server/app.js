@@ -13,7 +13,7 @@ const pgdb = require('./src/services/pgdb')
 //importing router modules
 const authRouter = require('./src/routes/router_auth')
 const newsRouter = require('./src/routes/router_news')
-const userRouter = require('./src/routes/router_router')
+const userRouter = require('./src/routes/router_user')
 
 const loggingMiddleware = (req, res, next) => {
     console.log("request received at " + new Date())

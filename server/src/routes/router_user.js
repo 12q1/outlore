@@ -12,13 +12,32 @@ router.post('/signup', (req, res, next) => {
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10)
         }
-        //TODO check if email already exists in db
         db.sync()
-            .then(() => User.create({
-                email: user.email,
-                password: user.password
-            }))
-            .then(() => res.send('user created'))
+            .then(
+                User
+                    .findOne({
+                        where: {
+                            email: req.body.email
+                        }
+                    })
+                    .then(entity => {
+                        if(entity) {
+                            res.status(400).send({
+                                message: 'User with that email already exists'
+                            })
+                        } else {
+                            User
+                                .create({
+                                    email: user.email,
+                                    password: user.password
+                                })
+                                .then(() => res.send({
+                                    message: 'user created'
+                                }))
+                        }
+
+                    })
+            )
     } else {
         res.status(400).send({ message: 'please provide an email address and password' })
     }
