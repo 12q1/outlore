@@ -10,8 +10,6 @@ getHeadlinesAsync = async () => {
     })
 }
 
-
-
 router.get(
     '/news',
     (req, res) => {
