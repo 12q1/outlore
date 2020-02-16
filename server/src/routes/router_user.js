@@ -41,8 +41,8 @@ router.post('/signup', (req, res, next) => {
                                 .then(() => res.send({
                                     message: 'user created'
                                 }))
+                                //TODO send jwt to user after signup? or force them to login? check best practice
                         }
-
                     })
             )
     } else {
