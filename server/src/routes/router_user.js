@@ -4,9 +4,16 @@ const router = new Router()
 const User = require('../models/model_user')
 const db = require('../services/pgdb')
 const { toJWT } = require('../services/jwt')
+const { passwordValidation, emailValidation } = require('../utils/validation')
 
 router.post('/signup', (req, res, next) => {
-    //TODO perform password validation
+    //Validation checks
+    if (!passwordValidation(req.body.password)) return res.status(400).send({ message: 'password is not strong enough' })
+    if (!emailValidation(req.body.email)) return res.status(400).send({ message: 'email address is not valid' })
+
+    //TODO is this really the best way to validate? do some research
+    //Sanitize user input?
+
     if (req.body.email && req.body.password) {
         const user = {
             email: req.body.email,
@@ -21,7 +28,7 @@ router.post('/signup', (req, res, next) => {
                         }
                     })
                     .then(entity => {
-                        if(entity) {
+                        if (entity) {
                             res.status(400).send({
                                 message: 'User with that email already exists'
                             })
