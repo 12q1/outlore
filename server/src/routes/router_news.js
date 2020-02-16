@@ -10,11 +10,26 @@ getHeadlinesAsync = async () => {
     })
 }
 
+getSourcesAsync = async () => {
+    return await newsapi.v2.sources({
+        language: 'en'
+    })
+}
+
 router.get(
     '/news',
     (req, res) => {
         getHeadlinesAsync()
             .then(result => res.json(result.articles))
+            .catch(error => console.log(error))
+    }
+)
+
+router.get(
+    '/news/sources',
+    (req, res) => {
+        getSourcesAsync()
+            .then(result => res.json(result.sources))
             .catch(error => console.log(error))
     }
 )
