@@ -6,7 +6,7 @@ const newsapi = new NewsAPI(process.env.NEWSAPIKEY)
 
 getHeadlinesAsync = async () => {
     return await newsapi.v2.topHeadlines({
-        sources: 'bbc-news'
+        sources: 'al-jazeera-english, ars-technica, associated-press, bbc-news, bloomberg, business-insider, cnn, engadget, financial-post, google-news, hacker-news, independent, national-geographic, new-scientist, newsweek, politico, reddit-r-all, reuters, the-verge, wired'
     })
 }
 
@@ -33,7 +33,5 @@ router.get(
             .catch(error => console.log(error))
     }
 )
-
-
 
 module.exports = router
