@@ -6,6 +6,9 @@ const pgdb = new Sequelize(dbUrl)
 pgdb
     .sync()
     .then(() => console.log('Database schema updated'))
-    .catch(console.error)
+    .catch(err => {
+        console.error("pgdb sync unsuccessful, shutting down...", err);
+        process.exit(1)
+    })
 
 module.exports = pgdb

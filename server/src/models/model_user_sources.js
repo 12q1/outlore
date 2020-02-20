@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const sequelize = require('../services/pgdb')
+const User = require('./model_user')
 
 const UserSources = sequelize.define('user_sources', {
     userId: {
@@ -17,5 +18,7 @@ const UserSources = sequelize.define('user_sources', {
 }, {
     tableName: 'user_sources'
 })
+
+UserSources.belongsTo(User)
 
 module.exports = UserSources
