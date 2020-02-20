@@ -29,7 +29,7 @@ router.get(
     '/news/sources',
     (req, res) => {
         getSourcesAsync()
-            .then(result => res.json(result.sources))
+            .then(result => res.json(result.sources.map(source => {return source.id})))
             .catch(error => console.log(error))
     }
 )
