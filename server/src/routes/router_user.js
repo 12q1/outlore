@@ -3,7 +3,7 @@ const { Router } = require('express')
 const router = new Router()
 const User = require('../models/model_user')
 const db = require('../services/pgdb')
-const { toJWT } = require('../services/jwt')
+const { toJWT } = require('../utils/jwt')
 const { passwordValidation, emailValidation } = require('../utils/validation')
 
 router.post('/signup', (req, res, next) => {
