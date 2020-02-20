@@ -15,6 +15,7 @@ const authRouter = require('./src/routes/router_auth')
 const newsRouter = require('./src/routes/router_news')
 const signupRouter = require('./src/routes/router_signup')
 const loginRouter = require('./src/routes/router_login')
+const userRouter = require('./src/routes/router_user')
 
 const loggingMiddleware = (req, res, next) => {
     console.log("request received at " + new Date())
@@ -37,6 +38,7 @@ app.use(authRouter)
 app.use(newsRouter)
 app.use(signupRouter)
 app.use(loginRouter)
+app.use(userRouter)
 
 //---Endpoints---
 app.get('/', (req, res) => res.send('Test API running'))
