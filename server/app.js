@@ -13,7 +13,8 @@ const pgdb = require('./src/services/pgdb')
 //importing router modules
 const authRouter = require('./src/routes/router_auth')
 const newsRouter = require('./src/routes/router_news')
-const userRouter = require('./src/routes/router_user')
+const signupRouter = require('./src/routes/router_signup')
+const loginRouter = require('./src/routes/router_login')
 
 const loggingMiddleware = (req, res, next) => {
     console.log("request received at " + new Date())
@@ -34,7 +35,8 @@ app.use(bodyParser.json())
 //---Routes---
 app.use(authRouter)
 app.use(newsRouter)
-app.use(userRouter)
+app.use(signupRouter)
+app.use(loginRouter)
 
 //---Endpoints---
 app.get('/', (req, res) => res.send('Test API running'))
