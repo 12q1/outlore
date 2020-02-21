@@ -22,8 +22,6 @@ router.post('/signup', (req, res, next) => {
         UserSources
             .create(
                 {
-                    abcNews: true,
-                    bbcNews: true,
                     user: {
                         email: user.email,
                         password: user.password

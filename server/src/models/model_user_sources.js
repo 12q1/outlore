@@ -13,15 +13,15 @@ const UserSources = sequelize.define('user_sources', {
     },
     alJazeeraEn: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     arsTechnica: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     associatedPress: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     australianFinancialReview: {
         type: Sequelize.BOOLEAN,
@@ -29,11 +29,11 @@ const UserSources = sequelize.define('user_sources', {
     },
     Axios: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     bbcNews: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     bbcSport: {
         type: Sequelize.BOOLEAN,
@@ -43,7 +43,7 @@ const UserSources = sequelize.define('user_sources', {
         type: Sequelize.BOOLEAN,
         defaultValue: false
     },
-    bloomber: {
+    bloomberg: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
     },
@@ -53,7 +53,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     businessInsider: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     businessInsiderUk: {
         type: Sequelize.BOOLEAN,
@@ -73,7 +73,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     cnn: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     cryptoCoinNews: {
         type: Sequelize.BOOLEAN,
@@ -81,7 +81,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     engadget: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     entertainmentWeekly: {
         type: Sequelize.BOOLEAN,
@@ -97,7 +97,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     financialPost: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     footballItalia: {
         type: Sequelize.BOOLEAN,
@@ -121,7 +121,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     googleNews: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     googleNewsAu: {
         type: Sequelize.BOOLEAN,
@@ -141,7 +141,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     hackerNews: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     ign: {
         type: Sequelize.BOOLEAN,
@@ -157,7 +157,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     medicalNewsToday: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     msnbc: {
         type: Sequelize.BOOLEAN,
@@ -173,7 +173,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     nationalGeographic: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     nationalReview: {
         type: Sequelize.BOOLEAN,
@@ -189,7 +189,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     newScientist: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     newsComAu: {
         type: Sequelize.BOOLEAN,
@@ -217,7 +217,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     politco: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     recode: {
         type: Sequelize.BOOLEAN,
@@ -225,11 +225,11 @@ const UserSources = sequelize.define('user_sources', {
     },
     redditRAll: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     reuters: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     rte: {
         type: Sequelize.BOOLEAN,
@@ -241,11 +241,11 @@ const UserSources = sequelize.define('user_sources', {
     },
     techcrunch: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     techRadar: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     theAmericanConservative: {
         type: Sequelize.BOOLEAN,
@@ -293,7 +293,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     theVerge: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     theWallStreetJournal: {
         type: Sequelize.BOOLEAN,
@@ -321,7 +321,7 @@ const UserSources = sequelize.define('user_sources', {
     },
     wired: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     }
 }, {
     tableName: 'user_sources'
