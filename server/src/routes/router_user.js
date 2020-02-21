@@ -9,13 +9,13 @@ const db = require('../services/pgdb')
 router.use(auth)
 
 router.get('/user/:userId', (req, res) => {
-    const tokenId = parseInt(toData(req.headers.authorization.split(' ')[1]).userId)
-    const userId = req.params.userId
-    if (userId === tokenId) {
+    const tokenId = parseInt(toData(req.headers.authorization.split(' ')[1]).userId) //decoding user id stored in JWT token
+    if (req.params.userId === tokenId) {
         User
             .findByPk(userId)
             .then(user => {
-                delete user.dataValues.password
+                delete user.dataValues.password //removing password from user object 
+                //TODO need to check if other values from the user object are leaking through
                 res.send({ user })
             })
             .catch(err => console.log(err))

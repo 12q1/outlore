@@ -17,16 +17,28 @@ router.post('/signup', (req, res, next) => {
     if (req.body.email && req.body.password) {
         const user = {
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10)
+            password: bcrypt.hashSync(req.body.password, 10),
         }
-        User
-            .create({
-                email: user.email,
-                password: user.password
-            })
-            .then(() => res.send({
-                message: 'user created'
-            }))
+        UserSources
+            .create(
+                {
+                    abcNews: true,
+                    bbcNews: true,
+                    user: {
+                        email: user.email,
+                        password: user.password
+                    }
+                }, {
+                include: [User]
+            }
+            )
+            //Special thanks to slideshowp2 for helping me fix the creation logic
+            //https://stackoverflow.com/questions/60330280/how-to-create-with-association-in-sequelize/60331473#60331473
+            .then(() =>
+                res.send({
+                    message: 'user created'
+                })
+            )
             //TODO send jwt to user after signup? or force them to login? check best practice
             .catch(() => res.status(500).send({
                 message: 'server encounter an error when creating user (possible duplicate email)'
