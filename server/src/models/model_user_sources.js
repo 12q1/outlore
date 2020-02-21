@@ -27,7 +27,7 @@ const UserSources = sequelize.define('user_sources', {
         type: Sequelize.BOOLEAN,
         defaultValue: false
     },
-    Axios: {
+    axios: {
         type: Sequelize.BOOLEAN,
         defaultValue: true
     },
