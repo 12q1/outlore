@@ -9,7 +9,7 @@ function auth(req, res, next) {
       User
         .findByPk(data.userId)
         .then(user => {
-          if (!user) return next('User does not exist')
+          if (!user) return next('User does not exist or your token is invalid')
 
           req.user = user
           next()

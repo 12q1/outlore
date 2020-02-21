@@ -29,6 +29,26 @@ router.get('/user/:userId', (req, res) => {
     }
 })
 
+router.delete('/user/:userId/delete', (req, res, next) => {
+    const tokenId = toData(req.headers.authorization.split(' ')[1]).userId //decoding user id stored in JWT token
+    const userId = parseInt(req.params.userId)
+    if (userId === tokenId) {
+        User
+            .destroy({ where: { id: userId } })
+            .then(() =>
+                res.send({
+                    message: 'user deleted'
+                })
+            )
+            //TODO recursively destroy other table rows connected to userid
+            .catch(err => console.log(err))
+    } else {
+        res.status(403).send({
+            message: "You are not authorized to perform this action"
+        })
+    }
+})
+
 // ---Routes related to user sources---
 router.get('/user/:userId/sources', (req, res) => {
     const tokenId = toData(req.headers.authorization.split(' ')[1]).userId //decoding user id stored in JWT token
@@ -50,5 +70,6 @@ router.get('/user/:userId/sources', (req, res) => {
         })
     }
 })
+
 
 module.exports = router
