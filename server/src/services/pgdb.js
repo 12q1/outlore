@@ -4,7 +4,7 @@ const dbUrl = process.env.DATABASE_URL || 'postgres://postgres:secret@localhost:
 const pgdb = new Sequelize(dbUrl)
 
 pgdb
-    .sync({force: true}) //TODO remove force in deployment
+    .sync() //TODO remove force in deployment {force: true}
     .then(() => console.log('Database schema updated'))
     .catch(err => {
         console.error("pgdb sync unsuccessful, shutting down...", err);

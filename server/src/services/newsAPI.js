@@ -1,7 +1,5 @@
 const NewsAPI = require('newsapi')
 const newsapi = new NewsAPI(process.env.NEWSAPIKEY)
-const User = require('../models/model_user')
-const UserSources = require('../models/model_user_sources')
 
 const getHeadlinesAsync = async () => {
     console.log('Requesting headlines')
