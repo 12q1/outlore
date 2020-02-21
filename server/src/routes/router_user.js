@@ -33,7 +33,7 @@ router.get('/user/:userId', (req, res, next) => {
 })
 
 // permanently deletes user from db
-router.delete('/user/:userId/delete', (req, res, next) => {
+router.delete('/user/:userId', (req, res, next) => {
     const tokenId = toData(req.headers.authorization.split(' ')[1]).userId //decoding user id stored in JWT token
     const userId = parseInt(req.params.userId)
     if (userId === tokenId) {
@@ -54,7 +54,7 @@ router.delete('/user/:userId/delete', (req, res, next) => {
 })
 
 // modifies user info 
-router.patch('/user/:userId/patch', (req, res, next) => {
+router.patch('/user/:userId', (req, res, next) => {
     const tokenId = toData(req.headers.authorization.split(' ')[1]).userId //decoding user id stored in JWT token
     const userId = parseInt(req.params.userId)
     //Validation checks
@@ -100,6 +100,5 @@ router.get('/user/:userId/sources', (req, res, next) => {
         })
     }
 })
-
 
 module.exports = router
