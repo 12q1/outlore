@@ -5,12 +5,13 @@ const auth = require('../middleware/middleware_auth')
 const User = require('../models/model_user')
 const db = require('../services/pgdb')
 
-// Applying authentication middleware
+// Applying authentication middleware to all routes within this router
 router.use(auth)
 
 router.get('/user/:userId', (req, res) => {
-    const tokenId = parseInt(toData(req.headers.authorization.split(' ')[1]).userId) //decoding user id stored in JWT token
-    if (req.params.userId === tokenId) {
+    const tokenId = toData(req.headers.authorization.split(' ')[1]).userId //decoding user id stored in JWT token
+    const userId = parseInt(req.params.userId)
+    if (userId === tokenId) {
         User
             .findByPk(userId)
             .then(user => {

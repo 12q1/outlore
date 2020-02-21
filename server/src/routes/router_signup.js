@@ -29,7 +29,7 @@ router.post('/signup', (req, res, next) => {
                 }, {
                 include: [User]
             }
-            )
+            ) 
             //Special thanks to slideshowp2 for helping me fix the creation logic
             //https://stackoverflow.com/questions/60330280/how-to-create-with-association-in-sequelize/60331473#60331473
             .then(() =>
