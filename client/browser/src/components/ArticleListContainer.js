@@ -1,15 +1,16 @@
 import React from 'react'
 import {loadArticles} from '../actions/articles'
 import {connect} from 'react-redux'
-import ArticlesList from './ArticlesList'
+import ArticleListItem from './ArticleListItem'
 
 class ArticlesListContainer extends React.Component {
   componentDidMount() {
+    console.log('component did mount')
     this.props.loadArticles()
   }
 
   render() {
-    return <ArticlesList articles={this.props.articles} />
+    return <ArticleListItem/>
   }
 }
 
