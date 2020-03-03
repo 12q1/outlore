@@ -1,21 +1,21 @@
 import React from 'react'
 import {loadArticles} from '../actions/articles'
 import {connect} from 'react-redux'
-import ArticleListItem from './ArticleListItem'
+import ArticleList from './ArticleList'
 
 class ArticlesListContainer extends React.Component {
   componentDidMount() {
-    console.log('component did mount')
     this.props.loadArticles()
   }
 
   render() {
-    return <ArticleListItem/>
+    //console.log(this.props)
+    return <ArticleList articles={this.props.articles} />
   }
 }
 
 const mapStateToProps = state => ({
-  articles: state.articles
+  articles: state.articleList
 })
 
 export default connect(mapStateToProps, {loadArticles})(ArticlesListContainer)

@@ -3,7 +3,7 @@ const initialState = []
 const articleListReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ARTICLES_FETCHED": {
-            console.log(action)
+            //console.log(action)
             return [...state, action.payload]
         }
         default: {
