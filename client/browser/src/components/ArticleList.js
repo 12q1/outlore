@@ -26,6 +26,9 @@ const useStyles = makeStyles({
   description: {
     fontSize: 14,
   },
+  media: {
+    height: 200,
+  },
   expand: {
     transform: 'rotate(0deg)',
   },
@@ -40,7 +43,7 @@ const useStyles = makeStyles({
     fontSize: 12,
   },
   card: {
-    display: "flex",
+    minWidth: 300
   }
 });
 
@@ -61,6 +64,14 @@ const ArticleList = (props) => {
       return (
         <Grid item xs key={article.url}>
           <Card className={classes.card} variant="outlined">
+            <Grid>
+
+            </Grid>
+            <CardMedia
+              className={classes.media}
+              image={article.urlToImage}
+              title={article.title}
+            />
             <CardContent>
               <Link href={article.url}>
                 <Typography className={classes.title} color="textSecondary">
@@ -70,30 +81,11 @@ const ArticleList = (props) => {
               <Typography className={classes.sources} color="textSecondary">
                 {article.author} ({article.source.name})
               </Typography>
-              <CardActions disableSpacing>
-                <IconButton
-                  className={clsx(classes.expand, {
-                    [classes.expandOpen]: expanded,
-                  })}
-                  onClick={handleExpandClick}
-                  aria-expanded={expanded}
-                  aria-label="show more"
-                >
-                  <ExpandMoreIcon />
-                </IconButton>
-              </CardActions>
-              <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                  <CardMedia
-                    className={classes.media}
-                    src={article.urlToImage}
-                    title="Paella dish"
-                  />
-                  <Typography className={classes.description} color="textSecondary" paragraph>
+              <Typography className={classes.description} color="textSecondary" paragraph>
                     {article.description}
                   </Typography>
-                </CardContent>
-              </Collapse>
+              <CardActions>
+              </CardActions>
             </CardContent>
           </Card>
         </Grid>
@@ -102,7 +94,7 @@ const ArticleList = (props) => {
 
     return (
       <div className={classes.root}>
-        <Grid>
+        <Grid container spacing={3}>
           {props.articles[0].map(article => renderArticle(article))}
         </Grid>
       </div>
