@@ -14,7 +14,7 @@ export const loadArticles = () => (dispatch, getState) => {
   //if (getState().articles) return
 
   // a GET /articles request
-  request(`${baseUrl}/news`)
+  request(`${baseUrl}/news/everything`)
     .then(response => {
       //console.log(response.body)
       // dispatch an ARTICLES_FETCHED action that contains the articles

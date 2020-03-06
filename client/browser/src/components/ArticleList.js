@@ -5,7 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 //import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-//import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
@@ -45,9 +45,6 @@ const ArticleList = (props) => {
       return (
         <Grid item xs key={article.url}>
           <Card className={classes.card} variant="outlined">
-            <Grid>
-
-            </Grid>
             <CardMedia
               className={classes.media}
               image={article.urlToImage}
@@ -65,9 +62,15 @@ const ArticleList = (props) => {
               <Typography className={classes.description} color="textSecondary" paragraph>
                 {article.description}
               </Typography>
-              <CardActions>
-              </CardActions>
             </CardContent>
+            <CardActions>
+              <Button size="small" color="primary">
+                Save
+                </Button>
+              <Button size="small" color="primary">
+                Comments
+                </Button>
+            </CardActions>
           </Card>
         </Grid>
       )

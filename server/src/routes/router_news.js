@@ -12,6 +12,15 @@ router.get(
 )
 
 router.get(
+    '/news/everything',
+    (req, res) => {
+        newsapi.getEverythingAsync()
+            .then(result => res.json(result.articles))
+            .catch(error => console.log(error))
+    }
+)
+
+router.get(
     '/news/sources',
     (req, res) => {
         newsapi.getSourcesAsync()
