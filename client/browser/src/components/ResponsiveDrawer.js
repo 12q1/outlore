@@ -18,6 +18,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ArticleListContainer from './ArticleListContainer'
+import ArticleGridContainer from './ArticleGridContainer'
 
 const drawerWidth = 240;
 
@@ -103,7 +104,7 @@ function ResponsiveDrawer(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        Responsive drawer
+                        Newsboy
           </Typography>
                 </Toolbar>
             </AppBar>
@@ -140,18 +141,10 @@ function ResponsiveDrawer(props) {
             </nav>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                <ArticleListContainer />
+                <ArticleGridContainer />
             </main>
         </div>
     );
 }
-
-ResponsiveDrawer.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    container: PropTypes.any,
-};
 
 export default ResponsiveDrawer;

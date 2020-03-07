@@ -3,19 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
-//import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-//import tileData from './tileData';
 
 const useStyles = makeStyles({
   root: {
@@ -26,20 +18,22 @@ const useStyles = makeStyles({
     fontSize: 14,
   },
   media: {
-    height: 100,
-    width: 150
+    height: 200,
   },
   title: {
     fontSize: 16,
     fontWeight: 700
   },
+  sources: {
+    fontSize: 12,
+  },
   card: {
-    width: 1,
+    minWidth: 300
   }
 });
 
 
-const ArticleList = (props) => {
+const ArticleGrid = (props) => {
   const classes = useStyles();
   if (props.articles.length === 0) {
     return null
@@ -54,8 +48,8 @@ const ArticleList = (props) => {
 
     const renderArticle = (article) => {
       return (
-        <ListItem key={article.url}>
-          <Card>
+        <Grid item xs key={article.url}>
+          <Card className={classes.card} variant="outlined">
             <CardMedia
               className={classes.media}
               image={handleImage(article.urlToImage, article.source.id)}
@@ -67,20 +61,35 @@ const ArticleList = (props) => {
                   {article.title}
                 </Typography>
               </Link>
+              <Typography className={classes.sources} color="textSecondary">
+                {article.author} ({article.source.name})
+              </Typography>
+              <Typography className={classes.description} color="textSecondary" paragraph>
+                {article.description}
+              </Typography>
             </CardContent>
+            <CardActions>
+              <Button size="small" color="primary">
+                Save
+                </Button>
+              <Button size="small" color="primary">
+                Comments
+                </Button>
+            </CardActions>
           </Card>
-        </ListItem>
+        </Grid>
       )
     }
 
     return (
       <div className={classes.root}>
-        <List>
+        <Grid container spacing={3}>
           {props.articles[0].map(article => renderArticle(article))}
-        </List>
+        </Grid>
       </div>
     )
   }
+
 }
 
-export default ArticleList
+export default ArticleGrid
