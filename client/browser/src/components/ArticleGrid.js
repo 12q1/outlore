@@ -29,7 +29,10 @@ const useStyles = makeStyles({
     fontSize: 12,
   },
   card: {
-    minWidth: 300
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    minWidth: 300,
   }
 });
 
@@ -84,7 +87,7 @@ const ArticleGrid = (props) => {
 
     return (
       <div className={classes.root}>
-        <Grid container spacing={3}>
+        <Grid container spacing={2} alignItems="stretch">
           {props.articles[0].map(article => renderArticle(article))}
         </Grid>
       </div>
