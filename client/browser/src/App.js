@@ -10,8 +10,14 @@ import blue from '@material-ui/core/colors/blue';
 
 const theme = createMuiTheme({
   palette: {
-    primary: blue,
+    primary: {
+     main: '#003366',
+    }
   },
+  shadows: ["none"],
+  shape: {
+    borderRadius: 0
+  }
 });
 
 class App extends Component {

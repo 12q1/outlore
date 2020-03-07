@@ -12,7 +12,8 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    padding: 5
+    padding: 5,
+    backgroundColor: '#cfd4e0'
   },
   description: {
     fontSize: 14,
@@ -49,7 +50,7 @@ const ArticleGrid = (props) => {
     const renderArticle = (article) => {
       return (
         <Grid item xs key={article.url}>
-          <Card className={classes.card} variant="outlined">
+          <Card className={classes.card}>
             <CardMedia
               className={classes.media}
               image={handleImage(article.urlToImage, article.source.id)}
