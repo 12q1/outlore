@@ -47,11 +47,12 @@ const useStyles = makeStyles(theme => ({
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
         width: drawerWidth,
+        backgroundColor: '#FFFFFF'
     },
     content: {
         flexGrow: 1,
         padding: theme.spacing(2),
-        backgroundColor: "#cfd4e0 "
+        backgroundColor: "#CACFD6"
     },
     title: {
         flexGrow: 1,
@@ -156,7 +157,7 @@ function ResponsiveDrawer(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        NEWSBOII
+                        newsboy
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>

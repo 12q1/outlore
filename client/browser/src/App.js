@@ -8,12 +8,12 @@ import ResponsiveDrawer from './components/ResponsiveDrawer'
 const theme = createMuiTheme({
   palette: {
     primary: {
-     main: '#003366',
+     main: '#222C3A',
     }
   },
-  shadows: ["none"], //this option will cause elevation warnings
+  //shadows: ["none"], //this option will cause elevation warnings
   shape: {
-    borderRadius: 0
+    borderRadius: 4
   }
 });
 

@@ -15,7 +15,6 @@ const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     padding: 5,
-    backgroundColor: '#cfd4e0'
   },
   description: {
     fontSize: 14,
@@ -46,7 +45,7 @@ const ArticleGrid = (props) => {
       if (image) {
         return image
       } else {
-        return require('../assets/noImage.png')
+        return require('../assets/noImage2.png')
       }
     }//TODO need to handle null images
 
