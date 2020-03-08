@@ -4,10 +4,12 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import SaveIcon from '@material-ui/icons/Save';
+import CommentIcon from '@material-ui/icons/Comment'
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles({
   root: {
@@ -23,17 +25,15 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: 16,
-    fontWeight: 700
+    fontWeight: 700,
+    marginBottom: 5,
   },
   sources: {
     fontSize: 12,
   },
   card: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
     minWidth: 300,
-  }
+  },
 });
 
 
@@ -52,7 +52,7 @@ const ArticleGrid = (props) => {
 
     const renderArticle = (article) => {
       return (
-        <Grid item xs key={article.url}>
+        <Grid item xs key={article.url} className={classes.gridItem}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.media}
@@ -65,20 +65,17 @@ const ArticleGrid = (props) => {
                   {article.title}
                 </Typography>
               </Link>
-              <Typography className={classes.sources} color="textSecondary">
-                {article.author} ({article.source.name})
-              </Typography>
               <Typography className={classes.description} color="textSecondary" paragraph>
-                {article.description}
+                {article.description} ({article.source.name})
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button size="small" color="primary">
-                Save
-                </Button>
-              <Button size="small" color="primary">
-                Comments
-                </Button>
+            <CardActions className={classes.cardActions}>
+              <IconButton aria-label="save">
+                <SaveIcon />
+              </IconButton>
+              <IconButton aria-label="comment">
+                <CommentIcon /> 
+              </IconButton>
             </CardActions>
           </Card>
         </Grid>

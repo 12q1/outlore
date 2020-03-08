@@ -4,17 +4,14 @@ import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
 //import Home from './components/Home'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import ArticleListContainer from './components/ArticleListContainer'
 import ResponsiveDrawer from './components/ResponsiveDrawer'
-import blue from '@material-ui/core/colors/blue';
-
 const theme = createMuiTheme({
   palette: {
     primary: {
      main: '#003366',
     }
   },
-  shadows: ["none"],
+  shadows: ["none"], //this option will cause elevation warnings
   shape: {
     borderRadius: 0
   }
