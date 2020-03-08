@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000
 const pgdb = require('./src/services/pgdb')
 const dbWorker = require('./src/services/dbWorker')
 
-console.log(dbWorker.unfluffArticleHtml('https://arstechnica.com/science/2020/03/dont-panic-the-comprehensive-ars-technica-guide-to-the-coronavirus/'))
+console.log(dbWorker.unfluffArticleHtml('https://www.engadget.com/2020/03/08/google-location-data-embroils-innocent-cyclist/'))
 
 //importing router modules
 const authRouter = require('./src/routes/router_auth')
