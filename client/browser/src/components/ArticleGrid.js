@@ -46,7 +46,7 @@ const ArticleGrid = (props) => {
       if (image) {
         return image
       } else {
-        return image
+        return require('../assets/noImage.png')
       }
     }//TODO need to handle null images
 
