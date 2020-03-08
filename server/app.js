@@ -9,6 +9,9 @@ const port = process.env.PORT || 3000
 
 //---Database---
 const pgdb = require('./src/services/pgdb')
+const dbWorker = require('./src/services/dbWorker')
+
+console.log(dbWorker.unfluffArticleHtml('https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_outbreak'))
 
 //importing router modules
 const authRouter = require('./src/routes/router_auth')
