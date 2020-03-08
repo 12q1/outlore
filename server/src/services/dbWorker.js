@@ -5,13 +5,15 @@ const SummarizerManager = require("node-summarizer").SummarizerManager;
 
 const getArticleHtml = async (url) => {
     const result = await request.get(url)
+                                .set('User-Agent', 'Mozilla/5.0') //spoofing user-agent here to bypass site security on some sites
+                                .catch(err => console.log(err))
     return result.res.text
 }
 
 const unfluffArticleHtml = async (url) => {
     const rawHtml = await getArticleHtml(url);
-    const data = extractor(rawHtml)
-    //console.log(data.text)
+    const data = extractor(rawHtml, 'en')
+    console.log(data)
     return await unfluffedArticleSummary(data)
 }
 
