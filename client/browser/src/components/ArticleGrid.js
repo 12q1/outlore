@@ -25,7 +25,6 @@ const useStyles = makeStyles({
   title: {
     fontSize: 16,
     fontWeight: 700,
-    marginBottom: 5,
   },
   sources: {
     fontSize: 12,
@@ -65,7 +64,10 @@ const ArticleGrid = (props) => {
                 </Typography>
               </Link>
               <Typography className={classes.description} color="textSecondary" paragraph>
-                {article.content} ({article.source.name})
+                {article.description}
+              </Typography>
+              <Typography className={classes.source} color="textSecondary" paragraph>
+                ({article.source.name})
               </Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>

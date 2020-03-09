@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000
 const pgdb = require('./src/services/pgdb')
 const dbWorker = require('./src/services/dbWorker')
 
-dbWorker.createAnArticle()
+//dbWorker.createAnArticle()
 
 //importing router modules
 const authRouter = require('./src/routes/router_auth')

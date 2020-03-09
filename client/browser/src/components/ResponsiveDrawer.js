@@ -22,6 +22,7 @@ import ArticleGridContainer from './ArticleGridContainer'
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
+
 const drawerWidth = 200;
 
 const useStyles = makeStyles(theme => ({
