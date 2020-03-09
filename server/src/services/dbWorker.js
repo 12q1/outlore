@@ -1,7 +1,22 @@
 const request = require('superagent');
 const extractor = require('unfluff');
 const SummarizerManager = require("node-summarizer").SummarizerManager;
+const newsapi = require('../services/newsAPI')
+const { removeDuplicateObjects } = require('../utils/dataHandlers')
+
+const createAnArticle = async () => {
+    newsapi
+        .getEverythingAsync() //fetch from everything endpoint
+        .then(result => removeDuplicateObjects(result.articles, ['title']) )
+        .then(result => result.map((article) => textFilter(`${article.title} ${article.description} ${article.content}`)))
+        .then(result => result.map((text) => getKeywordFrequency(text).weighted_map))
+        .then(result => console.log(result))
+}
+
 // Step 1: Get all the articles from NewsAPI
+
+
+
 
 const getHtml = async (url) => {
     const result = await request.get(url)
@@ -25,6 +40,12 @@ const textFilter = (nText) => {
     return breakless
 }
 
+const getKeywordFrequency = (text) => {
+    let summarizer = new SummarizerManager(text)
+    let result = summarizer.getSummaryByFrequency()
+    return result
+}
+
 const unfluffedArticleSummary = async (article) => {
 
     const rawText = `${article.title}. `.concat(article.text) //adding title because word frequency factors heavily into summary
@@ -35,7 +56,9 @@ const unfluffedArticleSummary = async (article) => {
 };
 //uses node summarizer to generate summary
 
-module.exports = { unfluffArticleHtml };
+
+
+module.exports = { createAnArticle };
 
 
 

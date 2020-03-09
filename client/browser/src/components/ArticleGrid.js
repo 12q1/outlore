@@ -65,7 +65,7 @@ const ArticleGrid = (props) => {
                 </Typography>
               </Link>
               <Typography className={classes.description} color="textSecondary" paragraph>
-                {article.description} ({article.source.name})
+                {article.content} ({article.source.name})
               </Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
