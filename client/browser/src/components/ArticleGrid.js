@@ -14,7 +14,8 @@ import IconButton from '@material-ui/core/IconButton';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    padding: 5,
+    padding: 10,
+    backgroundColor: "#CACFD6"
   },
   description: {
     fontSize: 14,
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
   title: {
     fontSize: 16,
     fontWeight: 700,
+    marginBottom: 5,
   },
   sources: {
     fontSize: 12,
@@ -32,6 +34,9 @@ const useStyles = makeStyles({
   card: {
     minWidth: 300,
   },
+  overlay:{
+    position:'absolute',
+  }
 });
 
 
@@ -66,18 +71,10 @@ const ArticleGrid = (props) => {
               <Typography className={classes.description} color="textSecondary" paragraph>
                 {article.description}
               </Typography>
-              <Typography className={classes.source} color="textSecondary" paragraph>
+              <Typography className={classes.sources} color="textSecondary" paragraph>
                 ({article.source.name})
               </Typography>
             </CardContent>
-            <CardActions className={classes.cardActions}>
-              <IconButton aria-label="save">
-                <SaveIcon />
-              </IconButton>
-              <IconButton aria-label="comment">
-                <CommentIcon /> 
-              </IconButton>
-            </CardActions>
           </Card>
         </Grid>
       )
